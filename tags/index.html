@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: Github, python,自动化测试,数据分析">
+    <meta name="keywords" content="标签, python,自动化测试,数据分析">
     <meta name="description" content="python爱好者，数据分析从业者">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -19,7 +19,7 @@
 
     
 
-    <title>标签: Github | Hazel</title>
+    <title>标签 | Hazel</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -368,7 +368,7 @@
                 
                 <a href="/tags/Github/" title="Github: 2">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
+                             chip-default "
                             data-tagname="Github" style="background-color: #F9EBEA;">Github
                         <span class="tag-length">2</span>
                     </span>
@@ -407,71 +407,32 @@
 </div>
 
     
+    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Github, tutorial, 博客, 数据分析" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/06/22/creditcard/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="信用卡违约率分析">
-                            
-                            <span class="card-title">信用卡违约率分析</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-22
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                HazelDing
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Github, tutorial, 博客, 数据分析" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/06/21/hello-world/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="数据分析知识清单">
-                            
-                            <span class="card-title">数据分析知识清单</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                HazelDing
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </article>
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
+
+    $('#tag-wordcloud').jQCloud([{"text":"Github","weight":2,"link":"/tags/Github/"},{"text":"tutorial","weight":2,"link":"/tags/tutorial/"},{"text":"博客","weight":2,"link":"/tags/博客/"},{"text":"数据分析","weight":2,"link":"/tags/数据分析/"}], {
+        autoResize: true
+    });
+</script>
+
+    
+
 </main>
-
-
 
 
     <footer class="page-footer bg-color">
