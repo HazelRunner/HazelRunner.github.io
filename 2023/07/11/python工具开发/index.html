@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数据分析知识清单, python,自动化测试,数据分析">
-    <meta name="description" content="梳理数据分析中数据采集，数据挖掘，数据可视化三大板块的知识脉络结构">
+    <meta name="keywords" content="python工具开发, python,自动化测试,数据分析">
+    <meta name="description" content="python开发，打包">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>数据分析知识清单 | hazelのblog</title>
+    <title>python工具开发 | hazelのblog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据分析知识清单</h1>
+                    <h1 class="description center-align post-title">python工具开发</h1>
                 </div>
             </div>
         </div>
@@ -442,8 +442,8 @@
                                 <span class="chip bg-color">博客</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                                <span class="chip bg-color">数据分析</span>
+                            <a href="/tags/python-%E5%B7%A5%E5%85%B7%E5%BC%80%E5%8F%91-%E6%89%93%E5%8C%85exe/">
+                                <span class="chip bg-color">python 工具开发 打包exe</span>
                             </a>
                         
                     </div>
@@ -458,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-21
+                    2023-07-11
                 </div>
                 
 
@@ -467,14 +467,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    328
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -492,93 +492,36 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>数据分析其实是通过一些数据源/工具获取数据并对数据做处理，结合业务内容，探索数据间的关联挖掘商业价值的过程。对于初学者而言，能清晰的了解各个版块的知识概要，在日后的学习中能纵观全局，有的放矢，避免因纠结于某个点从入门到放弃。下面将按数据采集，数据挖掘，数据可视化三个板块来分别介绍各自的知识点。</p>
-<h3 id="数据采集"><a href="#数据采集" class="headerlink" title="数据采集"></a>数据采集</h3><p>一. 数据源</p>
+                <p>用python开发小工具，且需要移植到不同终端，就需要打包依赖文件为可执行程序，本文做一个简单说明</p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><ul>
+<li><p>安装python3.10 </p>
+</li>
+<li><p>选择小工具开发框架，比如pyqt5,tinker</p>
+</li>
+<li><p>安装python第三方库</p>
+</li>
+</ul>
+<blockquote>
+<p>pip install tensorflow -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a> </p>
+</blockquote>
+<p>（可以将TensorFlow替换为你需要的库）</p>
+<blockquote>
+<p>pip install pyinstaller == 4.10</p>
+</blockquote>
 <ul>
-<li>开源数据源</li>
-<li>爬虫抓取</li>
-<li>日志采集</li>
-<li>传感器</li>
-</ul>
-<p>二. 工具使用</p>
-<ul>
-<li>八爪鱼</li>
-<li>火车采集器</li>
-<li>搜集客</li>
-</ul>
-<p>三. 爬虫编写</p>
-<ul>
-<li>selenium</li>
-<li>phantomjs</li>
-<li>scrapy</li>
-<li>lxml</li>
-</ul>
-<h3 id="数据挖掘"><a href="#数据挖掘" class="headerlink" title="数据挖掘"></a>数据挖掘</h3><p>一. 数据挖掘基本流程（6步骤）</p>
-<ol>
-<li>商业理解（目的）<br>挖掘不是目的，帮助业务才是目的，从商业的角度理解项目</li>
-<li>数据理解（认知）<br>收集、探索数据，帮数据描述、数据质量验证等</li>
-<li>数据准备（收集）<br>清洗、数据集成等准备工作</li>
-<li>模型建立（分类）<br>利用各种数据挖掘模型</li>
-<li>模型评估（商业目标）<br>对模型进行评价，并检查模型的每个步骤，确认是否实现了预定的商业目标</li>
-<li>上线发布（知识转化成可用方式）<br>可用是报告、可复用的数据挖掘过程等，数据挖掘结果如果是日常运营的一部分，那么后续监控维护就很重要</li>
-</ol>
-<p>二. 数据挖掘的十大经典算法</p>
-<ol>
-<li>分类算法<ul>
-<li>C4.5/决策树算法<blockquote>
-<p>十大算法之首，在决策树构造过程中进行剪枝且可以处理连续属性，也能对不完整的数据进行处理</p>
-</blockquote>
+<li><p>安装打包工具：pyinstaller4.10<br>（对应python3.10,不同python版本可选择不同pyinstaller版本，可能存在python3.10引用方式不同，比如按照报错提示修改compat调用方式）</p>
 </li>
-<li>朴素贝叶斯/Naive Bayes<blockquote>
-<p>基于概率论，主要思想：对于给出未知物体想要进行分类，就需要求解在这个未知物体出现的条件下各个类别出现的概率，哪个最大就认为这个未知物体属于哪个分类</p>
-</blockquote>
-</li>
-<li>SVM/支持向量机（Support Vector Machine）<blockquote>
-<p>在训练中建立了一个超平面的分类模型</p>
-</blockquote>
-</li>
-<li>KNN/K最临近算法（K-Nearest Neighbor）<blockquote>
-<p>K临近就是每个样本都可以用它最接近的K个邻居来代表，如一个样本，它的K个最接近的邻居都属于分类A，那么这个样本也属于A</p>
-</blockquote>
-</li>
-<li>Adaboost<blockquote>
-<p>在训练中建立了一个联合的分类模型，boost 是提升的意思，Adaboost 是个构建分类器的提升算法，它可以让多个弱分类器组成一个强分类器，常用算法</p>
-</blockquote>
-</li>
-<li>CART/Classification and Regression Trees<blockquote>
-<p>代表分类和回归树，它构建了两棵树：一颗是分类树，一颗是回归树，和 C4.5 一样，是决策树学习方法</p>
-</blockquote>
+<li><p>编写的工具/代码在本地可正常执行</p>
 </li>
 </ul>
-</li>
-<li>关联分析<ul>
-<li>Apriori<blockquote>
-<p>是一种挖掘关联规则<code>association rules</code>的算法，通过挖掘频繁项集<code>frequent item sets</code>来揭示物品之间的关联关系，被广泛应用到商业挖掘和网络安全中。频繁项集是指经常出现在一起的物品的集合，关联规则暗示着两种物品之间可能存在很强的关系。</p>
+<h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><p>控制台进入在工具/代码目录，输入命令打包成一个exe，打包命令：</p>
+<blockquote>
+<p>pyinstaller -F main.py</p>
 </blockquote>
-</li>
-</ul>
-</li>
-<li>聚类算法<ul>
-<li>K-Means<blockquote>
-<p>把物体划分成K类，假设每个类别里面，都有个<code>中心点</code>即意见领袖，它是这个类别的核心。现在我有一个新点要归类，这时候就只要计算这个新点与K个中心点的距离，距离哪个中心点近，就变成哪个类别</p>
-</blockquote>
-</li>
-<li>EM/最大期望算法<blockquote>
-<p>求参数的最大似然估计，原理：假设我们想要评估参数 A 和参数 B，在开始状态下二者都是未知的，并且知道了 A 的信息就可以知道 B 的信息，反过来知道了 B 也就知道了 A。可以考虑首先赋予 A 某个初值，以此得到 B 的估值，然后从 B 的估值出发，重新计算 A 的取值，这个过程一直持续到收敛为止，常用于聚类和机器学习中。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>连接分析<ul>
-<li>PageRank<blockquote>
-<p>被链接次数越多，权重越高</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ol>
-<p>三. 数据挖掘的数据原理（本质）<br>概率论和数理统计、线代等</p>
-<h3 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h3><p>一. matplotlib<br>二. pyecharts</p>
+<p>备注：区分 -F，-D区别</p>
+<p>打包完成后，将需要的文件，生成dist，build两个文件夹，在dist文件夹中启动main.exe<br>观察是否还有依赖报错，比如在小工具中依赖启动图片，日志文件夹，及配置文件，就可以将<br>log，config，启动图片放在dist文件夹下，将dist文件夹，包含main.exe、log、config，图片等资源移植到其他终端，执行成功</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/guyezhou51/article/details/115862287">Python打包命令PyInstaller各参数含义</a>.</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/bearstarx/article/details/81054134">pyinstaller参数介绍以及总结</a></p>
 
                 
             </div>
@@ -605,7 +548,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hazelrunner.github.io/2022/06/21/hello-world/">https://hazelrunner.github.io/2022/06/21/hello-world/</a>
+                    <a href="https://hazelrunner.github.io/2023/07/11/python%E5%B7%A5%E5%85%B7%E5%BC%80%E5%8F%91/">https://hazelrunner.github.io/2023/07/11/python%E5%B7%A5%E5%85%B7%E5%BC%80%E5%8F%91/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -655,8 +598,8 @@
                                     <span class="chip bg-color">博客</span>
                                 </a>
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                                    <span class="chip bg-color">数据分析</span>
+                                <a href="/tags/python-%E5%B7%A5%E5%85%B7%E5%BC%80%E5%8F%91-%E6%89%93%E5%8C%85exe/">
+                                    <span class="chip bg-color">python 工具开发 打包exe</span>
                                 </a>
                             
                         </div>
@@ -830,29 +773,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/06/22/creditcard/">
+                <a href="/2023/07/11/python%E5%B7%A5%E5%85%B7%E5%BC%80%E5%8F%91/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="信用卡违约率分析">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="python工具开发">
                         
-                        <span class="card-title">信用卡违约率分析</span>
+                        <span class="card-title">python工具开发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            GridSearchCV+pipeline管道机制，创建分类器，优化算法模型
+                            python开发，打包
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -861,6 +805,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -876,8 +821,8 @@
                         <span class="chip bg-color">博客</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">数据分析</span>
+                    <a href="/tags/python-%E5%B7%A5%E5%85%B7%E5%BC%80%E5%8F%91-%E6%89%93%E5%8C%85exe/">
+                        <span class="chip bg-color">python 工具开发 打包exe</span>
                     </a>
                     
                 </div>
@@ -888,27 +833,27 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/21/hello-world/">
+                <a href="/2023/07/07/docker/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="数据分析知识清单">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="docker原生使用">
                         
-                        <span class="card-title">数据分析知识清单</span>
+                        <span class="card-title">docker原生使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            梳理数据分析中数据采集，数据挖掘，数据可视化三大板块的知识脉络结构
+                            docker使用，问题解决
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-07
                             </span>
                         <span class="publish-author">
                             
@@ -918,7 +863,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     

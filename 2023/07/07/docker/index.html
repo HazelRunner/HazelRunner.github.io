@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数据分析知识清单, python,自动化测试,数据分析">
-    <meta name="description" content="梳理数据分析中数据采集，数据挖掘，数据可视化三大板块的知识脉络结构">
+    <meta name="keywords" content="docker原生使用, python,自动化测试,数据分析">
+    <meta name="description" content="docker使用，问题解决">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>数据分析知识清单 | hazelのblog</title>
+    <title>docker原生使用 | hazelのblog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -314,7 +314,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据分析知识清单</h1>
+                    <h1 class="description center-align post-title">docker原生使用</h1>
                 </div>
             </div>
         </div>
@@ -458,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-21
+                    2023-07-07
                 </div>
                 
 
@@ -467,14 +467,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    539
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -492,93 +492,70 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>数据分析其实是通过一些数据源/工具获取数据并对数据做处理，结合业务内容，探索数据间的关联挖掘商业价值的过程。对于初学者而言，能清晰的了解各个版块的知识概要，在日后的学习中能纵观全局，有的放矢，避免因纠结于某个点从入门到放弃。下面将按数据采集，数据挖掘，数据可视化三个板块来分别介绍各自的知识点。</p>
-<h3 id="数据采集"><a href="#数据采集" class="headerlink" title="数据采集"></a>数据采集</h3><p>一. 数据源</p>
+                <h3 id="docker使用问题及解决"><a href="#docker使用问题及解决" class="headerlink" title="docker使用问题及解决"></a>docker使用问题及解决</h3><p>一.问题描述：permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get “http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json”: dial unix /var/run/docker.sock: connect: permission denied</p>
 <ul>
-<li>开源数据源</li>
-<li>爬虫抓取</li>
-<li>日志采集</li>
-<li>传感器</li>
+<li><p>使用sudo获取root权限运行</p>
+</li>
+<li><p>docker守护进程启动的时候，会默认赋予名字为docker的用户组读写Unix socket的权限，因此只要创建docker用户组，并将当前用户加入到docker用户组中，那么当前用户就有权限访问Unix socket了，进而也就可以执行docker相关命令</p>
+</li>
 </ul>
-<p>二. 工具使用</p>
-<ul>
-<li>八爪鱼</li>
-<li>火车采集器</li>
-<li>搜集客</li>
-</ul>
-<p>三. 爬虫编写</p>
-<ul>
-<li>selenium</li>
-<li>phantomjs</li>
-<li>scrapy</li>
-<li>lxml</li>
-</ul>
-<h3 id="数据挖掘"><a href="#数据挖掘" class="headerlink" title="数据挖掘"></a>数据挖掘</h3><p>一. 数据挖掘基本流程（6步骤）</p>
+<blockquote>
 <ol>
-<li>商业理解（目的）<br>挖掘不是目的，帮助业务才是目的，从商业的角度理解项目</li>
-<li>数据理解（认知）<br>收集、探索数据，帮数据描述、数据质量验证等</li>
-<li>数据准备（收集）<br>清洗、数据集成等准备工作</li>
-<li>模型建立（分类）<br>利用各种数据挖掘模型</li>
-<li>模型评估（商业目标）<br>对模型进行评价，并检查模型的每个步骤，确认是否实现了预定的商业目标</li>
-<li>上线发布（知识转化成可用方式）<br>可用是报告、可复用的数据挖掘过程等，数据挖掘结果如果是日常运营的一部分，那么后续监控维护就很重要</li>
+<li>sudo groupadd docker #添加docker用户组</li>
+<li>sudo gpasswd -a $USER docker  #将登陆用户加入到docker用户组中</li>
+<li>newgrp docker #更新用户组</li>
+<li>docker images    #测试docker命令是否可以使用sudo正常使用</li>
 </ol>
-<p>二. 数据挖掘的十大经典算法</p>
+</blockquote>
+<h3 id="运行一个Web应用"><a href="#运行一个Web应用" class="headerlink" title="运行一个Web应用"></a>运行一个Web应用</h3><p>用docker构建一个web应用程序，载入镜像（默认是从Docker Hub公共镜像源下载）</p>
+<blockquote>
+<p>hazel@hazel:~$ docker pull training/webapp  </p>
+</blockquote>
+<p>docker容器中运行Python Flask应用来运行一个web应用</p>
+<blockquote>
+<p>hazel@hazel:~$ docker run -d -P training/webapp python app.py</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>-d:让容器在后台运行</li>
+<li>-P:将容器内部使用的网络端口随机映射到我们使用的主机上</li>
+</ul>
+<h3 id="查看Web应用容器"><a href="#查看Web应用容器" class="headerlink" title="查看Web应用容器"></a>查看Web应用容器</h3><p>使用 docker ps 来查看正在运行的容器</p>
+<blockquote>
+<p>hazel@hazel:~$ docker ps</p>
+</blockquote>
+<p><img src="/images/dockerps.png" alt="图片"></p>
+<p>Docker 开放了5000端口（默认 Python Flask 端口）映射到主机端口 32769 上。<br>这时我们可以通过浏览器访问WEB应用</p>
+<p><img src="/images/webapp.png" alt="图片"></p>
+<h3 id="查看-WEB-应用程序日志"><a href="#查看-WEB-应用程序日志" class="headerlink" title="查看 WEB 应用程序日志"></a>查看 WEB 应用程序日志</h3><blockquote>
+<p>hazel@hazel:~$ docker logs -f e8efe3d0c350</p>
+</blockquote>
+<p><img src="/images/dockerlogs.png" alt="图片"></p>
+<h3 id="容器使用其他命令"><a href="#容器使用其他命令" class="headerlink" title="容器使用其他命令"></a>容器使用其他命令</h3><p>重启Web应用容器</p>
+<blockquote>
+<p>hazel@hazel:~$ docker start sleepy_albattani</p>
+</blockquote>
+<p>重启正在运行的容器</p>
+<blockquote>
+<p>hazel@hazel:~$ docker restart sleepy_albattani</p>
+</blockquote>
+<p>停止Web应用容器</p>
+<blockquote>
+<p>hazel@hazel:~$ docker stop sleepy_albattani</p>
+</blockquote>
+<p>移除Web应用容器(删除时容器必须是停止状态，否则会报错)</p>
+<blockquote>
+<p>hazel@hazel:~$ docker rm sleepy_albattani</p>
+</blockquote>
+<p>查询最后一次创建的容器</p>
+<blockquote>
+<p>hazel@hazel:~$ docker ps -l</p>
+</blockquote>
+<h3 id="镜像使用"><a href="#镜像使用" class="headerlink" title="镜像使用"></a>镜像使用</h3><p>从 docker 镜像仓库中下载的镜像无法满足需求时，可以通过以下两种方式对镜像进行更改。</p>
 <ol>
-<li>分类算法<ul>
-<li>C4.5/决策树算法<blockquote>
-<p>十大算法之首，在决策树构造过程中进行剪枝且可以处理连续属性，也能对不完整的数据进行处理</p>
-</blockquote>
-</li>
-<li>朴素贝叶斯/Naive Bayes<blockquote>
-<p>基于概率论，主要思想：对于给出未知物体想要进行分类，就需要求解在这个未知物体出现的条件下各个类别出现的概率，哪个最大就认为这个未知物体属于哪个分类</p>
-</blockquote>
-</li>
-<li>SVM/支持向量机（Support Vector Machine）<blockquote>
-<p>在训练中建立了一个超平面的分类模型</p>
-</blockquote>
-</li>
-<li>KNN/K最临近算法（K-Nearest Neighbor）<blockquote>
-<p>K临近就是每个样本都可以用它最接近的K个邻居来代表，如一个样本，它的K个最接近的邻居都属于分类A，那么这个样本也属于A</p>
-</blockquote>
-</li>
-<li>Adaboost<blockquote>
-<p>在训练中建立了一个联合的分类模型，boost 是提升的意思，Adaboost 是个构建分类器的提升算法，它可以让多个弱分类器组成一个强分类器，常用算法</p>
-</blockquote>
-</li>
-<li>CART/Classification and Regression Trees<blockquote>
-<p>代表分类和回归树，它构建了两棵树：一颗是分类树，一颗是回归树，和 C4.5 一样，是决策树学习方法</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>关联分析<ul>
-<li>Apriori<blockquote>
-<p>是一种挖掘关联规则<code>association rules</code>的算法，通过挖掘频繁项集<code>frequent item sets</code>来揭示物品之间的关联关系，被广泛应用到商业挖掘和网络安全中。频繁项集是指经常出现在一起的物品的集合，关联规则暗示着两种物品之间可能存在很强的关系。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>聚类算法<ul>
-<li>K-Means<blockquote>
-<p>把物体划分成K类，假设每个类别里面，都有个<code>中心点</code>即意见领袖，它是这个类别的核心。现在我有一个新点要归类，这时候就只要计算这个新点与K个中心点的距离，距离哪个中心点近，就变成哪个类别</p>
-</blockquote>
-</li>
-<li>EM/最大期望算法<blockquote>
-<p>求参数的最大似然估计，原理：假设我们想要评估参数 A 和参数 B，在开始状态下二者都是未知的，并且知道了 A 的信息就可以知道 B 的信息，反过来知道了 B 也就知道了 A。可以考虑首先赋予 A 某个初值，以此得到 B 的估值，然后从 B 的估值出发，重新计算 A 的取值，这个过程一直持续到收敛为止，常用于聚类和机器学习中。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>连接分析<ul>
-<li>PageRank<blockquote>
-<p>被链接次数越多，权重越高</p>
-</blockquote>
-</li>
-</ul>
-</li>
+<li>从已经创建的容器中更新镜像，并且提交这个镜像</li>
+<li>使用 Dockerfile 指令来创建一个新的镜像</li>
 </ol>
-<p>三. 数据挖掘的数据原理（本质）<br>概率论和数理统计、线代等</p>
-<h3 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h3><p>一. matplotlib<br>二. pyecharts</p>
 
                 
             </div>
@@ -605,7 +582,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hazelrunner.github.io/2022/06/21/hello-world/">https://hazelrunner.github.io/2022/06/21/hello-world/</a>
+                    <a href="https://hazelrunner.github.io/2023/07/07/docker/">https://hazelrunner.github.io/2023/07/07/docker/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -834,24 +811,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/06/22/creditcard/">
+                <a href="/2023/07/11/python%E5%B7%A5%E5%85%B7%E5%BC%80%E5%8F%91/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="信用卡违约率分析">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="python工具开发">
                         
-                        <span class="card-title">信用卡违约率分析</span>
+                        <span class="card-title">python工具开发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            GridSearchCV+pipeline管道机制，创建分类器，优化算法模型
+                            python开发，打包
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-11
                         </span>
                         <span class="publish-author">
                             
@@ -876,8 +853,8 @@
                         <span class="chip bg-color">博客</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">数据分析</span>
+                    <a href="/tags/python-%E5%B7%A5%E5%85%B7%E5%BC%80%E5%8F%91-%E6%89%93%E5%8C%85exe/">
+                        <span class="chip bg-color">python 工具开发 打包exe</span>
                     </a>
                     
                 </div>
@@ -888,27 +865,27 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/21/hello-world/">
+                <a href="/2022/11/30/bi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="数据分析知识清单">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="bi">
                         
-                        <span class="card-title">数据分析知识清单</span>
+                        <span class="card-title">bi</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            梳理数据分析中数据采集，数据挖掘，数据可视化三大板块的知识脉络结构
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-30
                             </span>
                         <span class="publish-author">
                             
@@ -917,27 +894,6 @@
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Github/">
-                        <span class="chip bg-color">Github</span>
-                    </a>
-                    
-                    <a href="/tags/tutorial/">
-                        <span class="chip bg-color">tutorial</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">数据分析</span>
-                    </a>
-                    
                 </div>
                 
             </div>
